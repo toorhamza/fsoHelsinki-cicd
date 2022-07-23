@@ -1,0 +1,166 @@
+Script started on 2022-07-24 01:23:31+03:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="208" LINES="19"]
+]0;root@DESKTOP-T7KLEOV: /mnt/d/projects/fsoHelsinki/part12-containers-applicationsroot@DESKTOP-T7KLEOV:/mnt/d/projects/fsoHelsinki/part12-containers-applications# con[K[K[Kdocker container
+
+Usage:  docker container COMMAND
+
+Manage containers
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  exec        Run a command in a running container
+  export      Export a container's filesystem as a tar archive
+  inspect     Display detailed information on one or more containers
+  kill        Kill one or more running containers
+  logs        Fetch the logs of a container
+  ls          List containers
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  prune       Remove all stopped containers
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  run         Run a command in a new container
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Run 'docker container COMMAND --help' for more information on a command.
+]0;root@DESKTOP-T7KLEOV: /mnt/d/projects/fsoHelsinki/part12-containers-applicationsroot@DESKTOP-T7KLEOV:/mnt/d/projects/fsoHelsinki/part12-containers-applications# docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                     NAMES
+4dce1e671b42   redis     "docker-entrypoint.s…"   12 minutes ago   Up 11 minutes   0.0.0.0:6379->6379/tcp    todo-backend-redis-1
+804e89ce0345   mongo     "docker-entrypoint.s…"   33 minutes ago   Up 11 minutes   0.0.0.0:3456->27017/tcp   todo-backend-mongo-1
+]0;root@DESKTOP-T7KLEOV: /mnt/d/projects/fsoHelsinki/part12-containers-applicationsroot@DESKTOP-T7KLEOV:/mnt/d/projects/fsoHelsinki/part12-containers-applications# docker exec -it todo-backend-redis-1
+"docker exec" requires at least 2 arguments.
+See 'docker exec --help'.
+
+Usage:  docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+
+Run a command in a running container
+]0;root@DESKTOP-T7KLEOV: /mnt/d/projects/fsoHelsinki/part12-containers-applicationsroot@DESKTOP-T7KLEOV:/mnt/d/projects/fsoHelsinki/part12-containers-applications# docker exec -it todo-backend-redis-1 bash
+[?2004hroot@4dce1e671b42:/data# 
+[Kroot@4dce1e671b42:/data# [7mredis-cli[27mredis-cli
+[?2004l
+127.0.0.1:6379> 
+[0K127.0.0.1:6379> K
+[17C
+[0K127.0.0.1:6379> KE
+[18C
+[0K127.0.0.1:6379> KEY
+[19C
+[0K127.0.0.1:6379> KEYS[0;90;49m pattern[0m
+[20C
+[0K127.0.0.1:6379> KEYS [0;90;49mpattern[0m
+[21C
+[0K127.0.0.1:6379> KEYS *[0;90;49m [0m
+[22C
+[0K127.0.0.1:6379> KEYS *
+[22C
+1) "added_todos"
+127.0.0.1:6379> 
+[0K127.0.0.1:6379> G
+[17C
+[0K127.0.0.1:6379> GE
+[18C
+[0K127.0.0.1:6379> GET[0;90;49m key[0m
+[19C
+[0K127.0.0.1:6379> GET [0;90;49mkey[0m
+[20C
+[0K127.0.0.1:6379> GET a[0;90;49m [0m
+[21C
+[0K127.0.0.1:6379> GET ad[0;90;49m [0m
+[22C
+[0K127.0.0.1:6379> GET add[0;90;49m [0m
+[23C
+[0K127.0.0.1:6379> GET adde[0;90;49m [0m
+[24C
+[0K127.0.0.1:6379> GET added[0;90;49m [0m
+[25C
+[0K127.0.0.1:6379> GET added_[0;90;49m [0m
+[26C
+[0K127.0.0.1:6379> GET added_t[0;90;49m [0m
+[27C
+[0K127.0.0.1:6379> GET added_to[0;90;49m [0m
+[28C
+[0K127.0.0.1:6379> GET added_tod[0;90;49m [0m
+[29C
+[0K127.0.0.1:6379> GET added_todo[0;90;49m [0m
+[30C
+[0K127.0.0.1:6379> GET added_todos[0;90;49m [0m
+[31C
+[0K127.0.0.1:6379> GET added_todos
+[31C
+"0"
+127.0.0.1:6379> 
+[0K127.0.0.1:6379> S
+[17C
+[0K127.0.0.1:6379> SE
+[18C
+[0K127.0.0.1:6379> SET[0;90;49m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[19C
+[0K127.0.0.1:6379> SET [0;90;49mkey value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[20C
+[0K127.0.0.1:6379> SET a[0;90;49m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[21C
+[0K127.0.0.1:6379> SET ad[0;90;49m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[22C
+[0K127.0.0.1:6379> SET add[0;90;49m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[23C
+[0K127.0.0.1:6379> SET adde[0;90;49m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[24C
+[0K127.0.0.1:6379> SET added[0;90;49m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[25C
+[0K127.0.0.1:6379> SET added_[0;90;49m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[26C
+[0K127.0.0.1:6379> SET added_t[0;90;49m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[27C
+[0K127.0.0.1:6379> SET added_to[0;90;49m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[28C
+[0K127.0.0.1:6379> SET added_tod[0;90;49m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[29C
+[0K127.0.0.1:6379> SET added_todo[0;90;49m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[30C
+[0K127.0.0.1:6379> SET added_todos[0;90;49m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[31C
+[0K127.0.0.1:6379> SET added_todos [0;90;49mvalue [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[32C
+[0K127.0.0.1:6379> SET added_todos 9[0;90;49m [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[33C
+[0K127.0.0.1:6379> SET added_todos 90[0;90;49m [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[34C
+[0K127.0.0.1:6379> SET added_todos 900[0;90;49m [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[35C
+[0K127.0.0.1:6379> SET added_todos 9000[0;90;49m [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[36C
+[0K127.0.0.1:6379> SET added_todos 900[0;90;49m [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[35C
+[0K127.0.0.1:6379> SET added_todos 9001[0;90;49m [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][0m
+[36C
+[0K127.0.0.1:6379> SET added_todos 9001
+[36C
+OK
+127.0.0.1:6379> 
+[0K127.0.0.1:6379> e
+[17C
+[0K127.0.0.1:6379> ex
+[18C
+[0K127.0.0.1:6379> exi
+[19C
+[0K127.0.0.1:6379> exit
+[20C
+[0K127.0.0.1:6379> exit
+[20C
+[?2004hroot@4dce1e671b42:/data# exit
+[?2004l
+exit
+]0;root@DESKTOP-T7KLEOV: /mnt/d/projects/fsoHelsinki/part12-containers-applicationsroot@DESKTOP-T7KLEOV:/mnt/d/projects/fsoHelsinki/part12-containers-applications# exit
+exit
+
+Script done on 2022-07-24 01:27:58+03:00 [COMMAND_EXIT_CODE="0"]
