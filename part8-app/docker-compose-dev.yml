@@ -1,0 +1,36 @@
+services:
+  frontend:
+    image: library-frontend-dev
+    build:
+      context: frontend-library
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./frontend-library:/usr/src/app 
+    ports:
+      - 3000:3000
+    container_name: library-frontend-dev
+    environment:
+      REACT_APP_BACKEND_URL: 'http://localhost:8080/api/'
+
+  backend:
+    image: library-backend-dev
+    build:
+      context: library-backend
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./library-backend:/usr/src/app 
+    ports:
+      - 3001:3001
+    container_name: library-backend-dev
+
+  nginx:
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    container_name: reverse-proxy-main
+    depends_on:
+      - frontend
+      - backend 
+  
