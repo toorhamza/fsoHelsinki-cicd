@@ -1,7 +1,5 @@
 FROM node:16 AS build-stage
 
-ENV REACT_APP_BACKEND_URL="http://localhost:8080/api/"
-
 WORKDIR /usr/src/app
 
 COPY . .
